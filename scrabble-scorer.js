@@ -14,16 +14,16 @@ const oldPointStructure = {
 
 function oldScrabbleScorer(word) {
   word = word.toUpperCase();
-  let letterPoints = "";
+  let points = 0;
 
   for (let i = 0; i < word.length; i++) {
     for (const pointValue in oldPointStructure) {
       if (oldPointStructure[pointValue].includes(word[i])) {
-        letterPoints += `Points for '${word[i]}': ${pointValue}\n`;
+        points = points + parseInt(pointValue);
       }
     }
   }
-  return letterPoints;
+  return points;
 }
 
 // your job is to finish writing these functions and variables that we've named //
@@ -78,9 +78,9 @@ function scorerPrompt() {
   console.log("1 - Vowel Bonus: Vowels are worth 3 points");
   console.log("2 - Scrabble: Uses scrabble point system");
 
-  const algorithm = input.question("Enter 0, 1, or 2: ");
+  const algorithmIndex = input.question("Enter 0, 1, or 2: ");
 
-  return scoringAlgorithms[algorithm];
+  return scoringAlgorithms[algorithmIndex];
 }
 
 function transform() {
