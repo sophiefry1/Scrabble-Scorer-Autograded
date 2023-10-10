@@ -98,7 +98,7 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
   const word = initialPrompt();
   const scorer = scorerPrompt();
-  console.log(`score for '${word}': ${scorer.scoringFunction(word)}`);
+  console.log(`score for '${word}': ${scorer.scorerFunction(word)}`);
 }
 
 // Don't write any code below this line //
